@@ -1,0 +1,667 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+  --color-bg: #f5f5f5;
+  --color-white: #ffffff;
+  --color-primary: #1e1e1e;
+  --color-secondary: #555555;
+  --color-accent: #d93f3f;
+  --transition: 0.3s ease;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+header {
+  background-color: var(--color-white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+header h1 {
+  font-size: 1.5rem;
+}
+header nav a {
+  margin-left: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+header nav a:hover {
+  color: var(--color-accent);
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background-color: var(--color-white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.card-body {
+  padding: 1rem;
+}
+.card-body h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+.card-body p {
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+}
+.card-body a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition);
+}
+.card-body a:hover {
+  color: #b63030;
+}
+
+footer {
+  background-color: var(--color-white);
+  padding: 1rem 0;
+  margin-top: 3rem;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+}
+footer p {
+  text-align: center;
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+}
+/* Botão “+ Nova Oficina” */
+.btn-nova-oficina {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+.btn-nova-oficina:hover {
+  background-color: #b63030;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: var(--color-white);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+  cursor: pointer;
+  transition: color var(--transition);
+}
+.modal-close:hover {
+  color: var(--color-accent);
+}
+
+#form-oficina label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+#form-oficina input,
+#form-oficina textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color var(--transition);
+}
+#form-oficina input:focus,
+#form-oficina textarea:focus {
+  border-color: var(--color-accent);
+  outline: none;
+}
+#form-oficina button[type="submit"] {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+#form-oficina button[type="submit"]:hover {
+  background-color: #b63030;
+}
+main.container {
+  position: relative;
+}
+
+.btn-nova-oficina {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.btn-nova-oficina:hover {
+  background-color: #b63030;
+}
+
+.container-vazia {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.container-vazia p {
+  font-size: 1.2rem;
+  color: var(--color-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.botao-adicionar-centralizado {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.botao-adicionar-centralizado:hover {
+  background-color: #b63030;
+}
+
+.card {
+  background-color: var(--color-white);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-accent);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.card button {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.card button:hover {
+  background-color: #b63030;
+  transform: translateY(-1px);
+}
+
+.grid .card {
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-top: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+@media (max-width: 400px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#conteudo-detalhes h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+#conteudo-detalhes p {
+  margin: 10px 0;
+  line-height: 1.4;
+  color: #555;
+}
+
+#modal-detalhes {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal-confirmar-exclusao {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+#modal-confirmar-exclusao .modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeInScale 0.3s ease-in-out;
+}
+
+#modal-confirmar-exclusao p {
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+#modal-confirmar-exclusao .btn-cancelar,
+#modal-confirmar-exclusao .btn-confirmar {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#modal-confirmar-exclusao .btn-cancelar {
+  background-color: #ccc;
+  color: #333;
+  transition: background-color 0.3s;
+}
+
+#modal-confirmar-exclusao .btn-cancelar:hover {
+  background-color: #bbb;
+}
+
+#modal-confirmar-exclusao .btn-confirmar {
+  background-color: #e74c3c;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+#modal-confirmar-exclusao .btn-confirmar:hover {
+  background-color: #c0392b;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.card-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.card-buttons button {
+  border: none;
+  border-radius: 5px;
+  padding: 6px 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.card-buttons .btn-editar i {
+  color: #ffffff;
+}
+
+.card-buttons .btn-excluir i {
+  color: #ffffff;
+}
+
+.card-buttons .btn-editar:hover {
+  background-color: #e74c3c;
+}
+
+.card-buttons .btn-excluir:hover {
+  background-color: #f5b7b1;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  width: 400px;
+  max-width: 90%;
+  border-radius: 8px;
+  padding: 30px 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-content .close:hover {
+  color: #444;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content label {
+  margin-top: 12px;
+  font-weight: bold;
+  color: #555;
+}
+
+.modal-content input[type="text"],
+.modal-content textarea {
+  margin-top: 6px;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  transition: border-color 0.2s ease;
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content textarea:focus {
+  outline: none;
+  border-color: #e74c3c;
+}
+
+.modal-button {
+  margin-top: 20px;
+  padding: 12px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background: #e74c3c;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.modal-button:hover {
+  background: #8b2e23;
+}
+
+.detalhes-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.detalhes-container .icon-large {
+  font-size: 56px;
+  color: #555;
+  margin-bottom: 12px;
+}
+.modal-input,
+.modal-textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.modal-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 2000;
+}
+
+.toast {
+  min-width: 200px;
+  max-width: 300px;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toast-success {
+  background-color: #28a745;
+}
+
+.toast-error {
+  background-color: #dc3545;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.toast .close-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.input-busca {
+  width: 100%;
+  padding: 8px;
+  margin: 16px 0;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.toolbar .input-busca {
+  flex: 1;
+  margin-left: 1rem;
+  max-width: 400px;
+}
+
+.toolbar .btn-nova-oficina {
+  position: static;
+  margin: 0;
+}

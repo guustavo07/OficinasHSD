@@ -1,0 +1,285 @@
+/* CSS login.html */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variáveis de cor e fonte */
+:root {
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+  --color-bg: #f5f5f5;
+  --color-card: #ffffff;
+  --color-primary: #1e1e1e;
+  --color-secondary: #555555;
+  --color-accent: #d93f3f;
+  --transition: 0.3s ease;
+}
+
+/* Corpo da página */
+body {
+  background-color: var(--color-bg);
+  font-family: var(--font-sans);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* Container principal */
+main {
+  background-color: var(--color-card);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+/* Título */
+main h1 {
+  font-size: 1.75rem;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Labels */
+form label {
+  text-align: left;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+}
+
+/* Inputs */
+form input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color var(--transition);
+}
+
+form input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+/* Botão de submit */
+form button {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background-color: var(--color-accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+form button:hover {
+  background-color: #b63030;
+  transform: translateY(-1px);
+}
+
+/* Link de registro */
+main p {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+}
+
+main p a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition);
+}
+
+main p a:hover {
+  color: #b63030;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 360px) {
+  main {
+    padding: 1.5rem;
+  }
+
+  main h1 {
+    font-size: 1.5rem;
+  }
+
+  form input,
+  form button {
+    font-size: 0.9rem;
+  }
+}
+
+/* CSS index.html */
+header {
+  background-color: var(--color-white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+header h1 {
+  font-size: 1.5rem;
+}
+header nav a {
+  margin-left: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+header nav a:hover {
+  color: var(--color-accent);
+}
+
+/* Grid de oficinas */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card de oficina */
+.card {
+  background-color: var(--color-white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.card-body {
+  padding: 1rem;
+}
+.card-body h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+}
+.card-body p {
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+}
+.card-body a {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.card-body a:hover {
+  color: #b63030;
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-white);
+  padding: 1rem 0;
+  margin-top: 3rem;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+}
+footer p {
+  text-align: center;
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+}
+
+/* Container de toasts */
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 2000;
+}
+
+/* Toast genérico */
+.toast {
+  min-width: 200px;
+  max-width: 300px;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Tipos */
+.toast-success {
+  background-color: #28a745;
+}
+
+.toast-error {
+  background-color: #dc3545;
+}
+
+/* Quando visível */
+.toast.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Botão de fechar dentro do toast */
+.toast .close-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.login-logo {
+  display: block;
+  margin: 0 auto 20px auto;
+  max-width: 150px; /* ou ajuste para 200px, conforme desejar */
+  height: auto;
+}
+
+h1 {
+  color: #dc3545;
+}

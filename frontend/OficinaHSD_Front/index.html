@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Oficinas Mecânicas</title>
+    <link rel="stylesheet" href="CSS/styleIndex.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <i
+          class="fas fa-tools"
+          style="font-size: 48px; color: var(--color-accent)"
+        ></i>
+        <h1>Oficinas Mecânicas</h1>
+        <nav>
+          <a href="login.html">Sair</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="toolbar">
+        <button id="btn-nova-oficina" class="btn-nova-oficina">
+          + Nova Oficina
+        </button>
+        <input
+          type="text"
+          id="filtro-nome"
+          placeholder="Buscar oficina pelo nome…"
+          class="input-busca"
+        />
+      </div>
+
+      <ul id="shop-list" class="grid"></ul>
+    </main>
+
+    <!-- Modal de cadastro -->
+    <div id="modal-adicionar-oficina" class="modal">
+      <div class="modal-content">
+        <span class="close" id="fechar-modal-adicionar">&times;</span>
+        <h2>Nova Oficina</h2>
+        <form id="form-adicionar-oficina">
+          <label>Nome:</label>
+          <input class="modal-input" id="nome-adicionar" required />
+          <label>Endereço:</label>
+          <input class="modal-input" id="endereco-adicionar" required />
+          <label>Serviços:</label>
+          <textarea id="servicos-adicionar" required></textarea>
+          <button type="submit" class="modal-button">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="modal-detalhes" class="modal hidden">
+      <div class="modal-content">
+        <span class="modal-close" onclick="fecharModalDetalhes()">&times;</span>
+        <div id="conteudo-detalhes"></div>
+      </div>
+    </div>
+
+    <div id="modal-confirmar-exclusao" class="modal hidden">
+      <div class="modal-content">
+        <p>Tem certeza que deseja excluir esta oficina?</p>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+          "
+        >
+          <button id="btn-cancelar-exclusao" class="btn-cancelar">
+            Cancelar
+          </button>
+          <button id="btn-confirmar-exclusao" class="btn-confirmar">
+            Excluir
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-editar-oficina" class="modal">
+      <div class="modal-content">
+        <span class="close" id="fechar-modal-editar">&times;</span>
+        <h2>Editar Oficina</h2>
+        <form id="form-editar-oficina">
+          <input class="modal-input" type="hidden" id="id-editar" />
+          <label>Nome:</label>
+          <input class="modal-input" id="nome-editar" required />
+          <label>Endereço:</label>
+          <input class="modal-input" id="endereco-editar" required />
+          <label>Serviços:</label>
+          <textarea id="servicos-editar" required></textarea>
+          <button type="submit" class="modal-button">Salvar Alterações</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Oficinas</p>
+    </footer>
+    <div id="toast-container" class="toast-container"></div>
+    <script src="JS/api.js"></script>
+    <script src="JS/home.js"></script>
+  </body>
+</html>
