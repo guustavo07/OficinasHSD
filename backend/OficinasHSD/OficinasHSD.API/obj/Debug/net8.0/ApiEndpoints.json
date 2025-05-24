@@ -1,0 +1,113 @@
+[
+  {
+    "ContainingType": "OficinasHSD.API.Controllers.OficinaController",
+    "Method": "Atualizar",
+    "RelativePath": "Oficina/Atualizar/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oficina",
+        "Type": "OficinasHSD.Application.DTOs.OficinaMecanicaDTO",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OficinasHSD.API.Controllers.OficinaController",
+    "Method": "Remover",
+    "RelativePath": "Oficina/Deletar/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OficinasHSD.API.Controllers.OficinaController",
+    "Method": "Inserir",
+    "RelativePath": "Oficina/Inserir",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "OficinasHSD.Application.DTOs.OficinaMecanicaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OficinasHSD.API.Controllers.OficinaController",
+    "Method": "ObterPorId",
+    "RelativePath": "Oficina/ObterPorId/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OficinasHSD.API.Controllers.OficinaController",
+    "Method": "ObterTodos",
+    "RelativePath": "Oficina/ObterTodos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OficinasHSD.API.Controllers.UsuarioController",
+    "Method": "Login",
+    "RelativePath": "Usuario/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "OficinasHSD.Application.DTOs.UsuarioDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OficinasHSD.API.Controllers.UsuarioController",
+    "Method": "RegistrarUsuario",
+    "RelativePath": "Usuario/Registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "OficinasHSD.Application.DTOs.UsuarioDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

@@ -1,0 +1,75 @@
+## .NET build artifacts
+bin/
+obj/
+out/
+
+## Rider / VS Code / VS
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Runtime-generated files
+*.db
+*.db-shm
+*.db-wal
+
+## Logs
+*.log
+logs/
+Log/
+
+## Visual Studio cache, temp, etc.
+.vs/
+_TestResults/
+TestResults/
+*.pidb
+*.svclog
+*.pdb
+
+## NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+*.nuspec
+
+## Docker
+**/Dockerfile.*
+docker-compose.override.yml
+docker-compose.*.yml
+.dockerignore
+
+## Publish
+publish/
+App_Data/
+wwwroot/dist/
+
+## Environment files
+*.env
+.env.*
+
+## Node/NPM (se usar frontend embutido)
+node_modules/
+dist/
+build/
+
+## Secrets (não versionar arquivos secretos)
+secrets.json
+
+## EF Core
+Migrations/
+
+## OS
+.DS_Store
+Thumbs.db

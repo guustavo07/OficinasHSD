@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "7mCOwAhZuZxaWoQhxdosBDtxaU3uBukSZE8m8YytgxA=",
+  "Source": "OficinasHSD.API",
+  "BasePath": "_content/OficinasHSD.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

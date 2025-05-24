@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\OficinasHSD.API.props" />
+</Project>
